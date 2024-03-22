@@ -24,10 +24,8 @@ npm run lint
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### Dockerfile ###
-docker run -d -p 8080:8000 --name note-app front-end:v1
-
 ### build Images ###
 docker build -t front-end:v1 .
 ``````
-
 ### run dockerfile ###
+docker run -d -p 8080:8000 --name note-app front-end:v1
