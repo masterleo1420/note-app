@@ -67,7 +67,7 @@ export default {
       this.$emit("delete-note", this.note1.id);
     },
     // editNote() {
-    //   // ตั้งค่าโน้ตที่แก้ไขในตัวแปรชั่วคราว editedNote
+    //   // ตั้งค่าโน้ตที่แก้ไขในตัวแปรชั่วคราว edited
 
     //   let editedNote = {
     //     id: this.note1.id,
