@@ -4,16 +4,6 @@
       <v-btn icon="mdi-plus" size="x-large" @click="dialog = true"></v-btn>
     </div>
     <v-dialog v-model="dialog" width="auto">
-      <v-alert
-        v-model="alert"
-        icon="$error"
-        close-label="Close Alert"
-        color="error"
-        title="Fill"
-        variant="tonal"
-        closable
-      >
-      </v-alert>
       <v-card max-width="400" prepend-icon="mdi-plus" title="Add Note">
         <template v-slot:actions>
           <v-sheet class="mx-auto" width="300">
@@ -28,7 +18,7 @@
                 :rules="nameRules"
                 v-model="descriptionText"
                 label="Discripton"
-                required = "asdsadsada"
+                required="asdsadsada"
               ></v-text-field>
               <v-select
                 :rules="nameRulesD"
@@ -71,7 +61,7 @@ export default {
     createBy: localStorage.getItem("user"),
     alert: false,
     nameRules: [(v) => !!v || "This field is required"],
-    nameRulesD:[(select) => !!select || 'This field is required']
+    nameRulesD: [(select) => !!select || "This field is required"],
   }),
   methods: {
     SendData() {
@@ -106,13 +96,13 @@ export default {
       }
     },
     checklocalStorage() {
-      // ตรวจสอบว่ามีข้อมูลใน sessionStorage หรือไม่
+      // ตรวจสอบว่ามีข้อมูลใน localStorage หรือไม่
       if (localStorage.getItem("isLoggedIn") !== null) {
-        // ถ้ามีข้อมูลใน sessionStorage ให้ทำตามที่ต้องการที่นี่
+        // ถ้ามีข้อมูลใน localStorage ให้ทำตามที่ต้องการที่นี่
         // เช่น การเข้าสู่ระบบสำเร็จ หรือเปลี่ยนหน้าไปที่หน้าหลัก
         console.log("มีข้อมูลใน localStorage");
       } else {
-        // ถ้าไม่มีข้อมูลใน sessionStorage ให้เด้งไปหน้า login
+        // ถ้าไม่มีข้อมูลใน localStorage ให้เด้งไปหน้า login
         // หรือดำเนินการอื่น ๆ ที่คุณต้องการที่นี่
         window.location.href = "/";
       }

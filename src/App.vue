@@ -12,7 +12,7 @@
           <v-btn @click="handleLogout"> Logout </v-btn>
           <v-btn> test </v-btn>
         </div>
-        <v-footer>asdsad</v-footer>
+        <div></div>
       </v-navigation-drawer>
 
       <v-main>
@@ -32,6 +32,7 @@
                 :currentPage="currentPage"
                 @change-page="handleChangePage"
                 @delete-note="handleDeleteNote"
+                @edit-note="handleEditNote"
               />
               <v-pagination
                 v-model="currentPage"
@@ -73,14 +74,16 @@ const isLoggedIn = ref(localStorage.getItem("isLoggedIn") === "true");
 
 const handleLogout = () => {
   localStorage.setItem("isLoggedIn", false);
-  localStorage.removeItem("user")
+  localStorage.removeItem("user");
   window.location.href = "/";
 };
-
 </script>
 
 <script>
 export default {
+  monuted() {
+    console.log();
+  },
   name: "App",
   components: {
     CreateNote,
@@ -93,7 +96,7 @@ export default {
     currentTime: null,
     currentPage: 1,
     itemsPerPage: 4,
-    createBy:""
+    createBy: "",
   }),
   computed: {
     lengthPages() {
@@ -126,6 +129,16 @@ export default {
     handleDeleteNote(noteId) {
       this.notes = this.notes.filter((note) => note.id !== noteId);
     },
+    handleEditNote(editedNote) {
+    // ตรวจสอบว่ามีโน้ตที่ต้องการแก้ไขหรือไม่
+    const noteIndex = this.notes.findIndex(note => note.id === editedNote.id);
+    if (noteIndex !== -1) {
+      // ทำการอัปเดตข้อมูลโน้ตที่มี ID ตรงกับ ID ใน editedNote
+      this.notes[noteIndex] = editedNote;
+    } else {
+      console.error('Note not found for ID:', editedNote.id);
+    }
+  }
   },
 };
 </script>

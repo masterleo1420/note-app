@@ -30,24 +30,24 @@
     },
     methods: {
       login() {
-        // ตรวจสอบข้อมูลเข้าสู่ระบบ โดยในที่นี้ให้ใช้ข้อมูลที่กำหนดไว้เป็นตัวอย่าง
+        // ตรวจสอบข้อมูลเข้าสู่ระบบ
         if (this.username === 'admin' && this.password === '1234') {
           // ส่งข้อมูลการล็อกอินสำเร็จกลับไปยัง Component หลัก
           this.$emit('login-success', this.username);
-          // ล้างค่าช่องใส่ข้อมูลหลังจาก Login เสร็จสิ้น
+          // เซ็ตค่า localStorage ให้เป็นชื่อของ username ที่ login
           localStorage.setItem("user",this.username)
         } else {
           alert('Invalid username or password');
         }
       },
       checklocalStorage() {
-      // ตรวจสอบว่ามีข้อมูลใน sessionStorage หรือไม่
+      // ตรวจสอบว่ามีข้อมูลใน localStorage หรือไม่
       if (localStorage.getItem('isLoggedIn') !== null) {
-          // ถ้ามีข้อมูลใน sessionStorage ให้ทำตามที่ต้องการที่นี่
+          // ถ้ามีข้อมูลใน localStorage ให้ทำตามที่ต้องการที่นี่
           // เช่น การเข้าสู่ระบบสำเร็จ หรือเปลี่ยนหน้าไปที่หน้าหลัก
           console.log("มีข้อมูลใน localStorage");
       } else {
-          // ถ้าไม่มีข้อมูลใน sessionStorage ให้เด้งไปหน้า login
+          // ถ้าไม่มีข้อมูลใน localStorage ให้เด้งไปหน้า login
           // หรือดำเนินการอื่น ๆ ที่คุณต้องการที่นี่
           window.location.href = "/";
       }
