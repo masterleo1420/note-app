@@ -10,7 +10,6 @@
       <v-navigation-drawer v-model="drawer" temporary>
         <div class="d-flex justify-content-end align-items-end bottom-right">
           <v-btn @click="handleLogout"> Logout </v-btn>
-          <v-btn> test </v-btn>
         </div>
         <div></div>
       </v-navigation-drawer>
@@ -20,7 +19,7 @@
           <v-row>
             <v-col>
               <div class="float-right">
-                <v-btn @click="sortNotesByTitle">เรียงลำดับตามชื่อ</v-btn>
+                <v-btn @click="sortNotesByTitle">Sort by Title</v-btn>
                 <v-btn @click="sortByCategory">Sort by Category</v-btn>
               </div>
             </v-col>
