@@ -91,7 +91,7 @@ export default {
     selectE: null,
     CategoryE: ["1", "2", "3"],
     dateTime: "",
-    createBy: "", 
+    createBy: localStorage.getItem("user") ,
     editedNote: {
         id: null,
         title: '',
@@ -136,6 +136,8 @@ export default {
       this.editedNote.title = this.note1.title;
       this.editedNote.description = this.note1.description;
       this.editedNote.category = this.note1.category;
+      this.editedNote.createBy = this.createBy;
+      this.editedNote.dateTime = new Date().toLocaleString("th-TH");
     },
     saveChanges() {
       // ส่งข้อมูลโน้ตที่แก้ไขไปยังคอมโพเนนต์หลัก (App.vue)
