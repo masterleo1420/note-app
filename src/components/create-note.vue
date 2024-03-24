@@ -70,7 +70,7 @@ export default {
       if (
         this.titleT !== "" &&
         this.descriptionText !== "" &&
-        this.select !== ""
+        this.select !== null
       ) {
         const title = this.titleT;
         const description = this.descriptionText;
