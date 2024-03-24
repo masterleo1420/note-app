@@ -22,8 +22,8 @@ npm run lint
 
 ### Dockerfile ###
 ### build Images ###
-docker build -t front-end:v1 .
 ``````
+docker build -t front-end:v1 .
 ``````
 #### run dockerfile ###
 ``````
