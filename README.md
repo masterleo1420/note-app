@@ -24,7 +24,9 @@ npm run lint
 ### build Images ###
 docker build -t front-end:v1 .
 ``````
+``````
 #### run dockerfile ###
+``````
 docker run -d -p 8080:8000 --name note-app front-end:v1
 ``````
 
